@@ -1,0 +1,18 @@
+
+name: Deploy Azure Runbooks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.ps1'
+
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    uses: mhoward-re/azure-automation-deploy/.github/workflows/deploy-runbooks-reusable.yml@main
